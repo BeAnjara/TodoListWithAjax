@@ -5,9 +5,11 @@ $(document).ready(function(){
 
 	$('ul.tab-links li a').click(function(e){
 		e.preventDefault();
+		$('ul.tab-links li a').removeClass('active');
 		let a = $(this).attr('href');
 		tabulation.hide();
 		$('div.tab-content div'+a).show();
+		$(this).addClass("active");
 	});
 
 });
