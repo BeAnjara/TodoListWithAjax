@@ -8,8 +8,11 @@ $(document).ready(function(){
 		$('ul.tab-links li a').removeClass('active');
 		let a = $(this).attr('href');
 		tabulation.hide();
-		$('div.tab-content div'+a).show();
+		$('div.tab-content div'+a).fadeIn(1000);
 		$(this).addClass("active");
 	});
 
+	$('#avatar-image').click(function(e){
+
+	});
 });
