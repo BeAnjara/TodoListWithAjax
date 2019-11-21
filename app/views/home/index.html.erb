@@ -2,16 +2,16 @@
 <%= render 'layouts/task_form'  %>
 <div class="container">
   <div class="tabs">
-    <ul class="tab-links"> 
+    <ul class="tab-links nav nav-pills"> 
       <% @categories.each_with_index do  |category, index|%>
-        <li> <a href="#tab<%=index%>"> <%= category.title  %> </a></li>
+        <li class="nav-item"> <a href="#tab<%=index%>"> <%= category.title  %> </a></li>
       <% end %>
     </ul>  
   </div>
 
   <div class="tab-content">
     <% @categories.each_with_index do  |category, index|%>
-    <div class="tab" id="tab<%=index%>">
+    <div class="tab container tab-pane" id="tab<%=index%>">
       <ul>
         <% category.tasks.each do |task|  %>
         <li>
