@@ -1,6 +1,12 @@
+.modal-body, .modal-header, .modal-footer {
+	background: gray;
+	color: #fff;
+	font-weight: bold;
+}
+
+
 .signin-modal {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
 }
