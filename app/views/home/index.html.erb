@@ -31,6 +31,8 @@
 
 <div class="container" id="carousel-content">
   <div class="row" id="carousel">
+
+   <!-- The slideshow -->
     <% @tasks.each_with_index do |task, index|  %>
         <% unless task.image.nil? %>
         <div style="background-image: url('<%= task.image %>');" id="slide<%=index%>" class="slide-image">
@@ -38,6 +40,14 @@
         <% end %>
       
     <% end %>
+
+     <!-- Left and right controls -->
+    <a class="carousel-control-prev arrow" href="#demo" data-slide="prev" id="left-arrow" >
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
   </div>
 </div>
 
