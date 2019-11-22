@@ -1,3 +1,7 @@
+Project Jquery with Ajax
+Pair programing:
+	Be Anjara Houssen
+	Tefy Raherivelo 
 # README
 
 This README would normally document whatever steps are necessary to get the
