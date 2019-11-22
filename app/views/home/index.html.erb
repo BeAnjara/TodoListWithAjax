@@ -29,14 +29,14 @@
 
 </div>
 
-<div class="container">
-  <div class="row">
-    <% @tasks.each do |task|  %>
-      <div class="card">
+<div class="container" id="carousel-content">
+  <div class="row" id="carousel">
+    <% @tasks.each_with_index do |task, index|  %>
         <% unless task.image.nil? %>
-          <%= image_tag task.image, class: "rounded-circle" %>
+        <div style="background-image: url('<%= task.image %>');" id="slide<%=index%>" class="slide-image">
+        </div>
         <% end %>
-      </div>
+      
     <% end %>
   </div>
 </div>

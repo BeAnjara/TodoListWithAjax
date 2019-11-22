@@ -1,6 +1,21 @@
-.img-carousel {
+#carousel-content {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background: #ccc;
 }
+
+.slide-image {
+  width: 50vw;
+  height: 50vh;
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+}
+
+#carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 50vw;
+  height: 50vh;
+}
+
