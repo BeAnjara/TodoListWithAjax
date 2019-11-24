@@ -1,0 +1,4 @@
+console.log("li#task-<%=@task.id.to_i%>")
+$('.tab-content').find('div').eq(<%= @task.category.id.to_i - 1 %>).find('ul').find('li#task-<%=@task.id.to_i%>').remove();
+$('p.notice').addClass("alert alert-warning");
+$('p.notice').html(" <%= j flash.now[:notice] %> ");

@@ -13,13 +13,13 @@ before_action :authenticate_user!
         format.html { redirect_to root_path }
         format.js { }
       end
-      flash[:notice] = "Task created"
+        flash[:notice] = "Task created"
     else
       respond_to do |format|
-        format.html { redirect_to root_path }
+        # format.html { redirect_to root_path }
         format.js { }
+        flash[:notice] = "Please try again"
       end
-      flash[:notice] = "Please try again"
     end
   end
 
@@ -42,8 +42,14 @@ before_action :authenticate_user!
 
   def destroy
     @task = Task.find(params[:id])
-    @task.destroy
-    redirect_to root_path
+    if @task.destroy
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { }
+        flash[:notice] = "Task deleted"
+      end
+    end
+    # redirect_to root_path
   end
 
 

@@ -9,22 +9,7 @@
     </ul>  
   </div>
 
-  <div class="tab-content">
-    <% @categories.each_with_index do  |category, index|%>
-    <div class="tab container tab-pane" id="tab<%=index%>">
-      <ul>
-        <% category.tasks.each do |task|  %>
-        <li>
-          <%= task.title  %>
-          <% unless task.deadline.nil? %>
-            , to read: <%= task.deadline.strftime('%D')  %>
-          <% end %>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-  </div>
+  <%= render 'tasks/show_task'  %>
 
 
 </div>
@@ -51,47 +36,4 @@
 </div>
 
 
-<div class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Sign In</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span arria-hidden="true" class="x-char">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="signin-modal">
-          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            
-            <div class="form-group">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, class: "form-control",autofocus: true, autocomplete: "email" %>
-            </div>
-
-
-            <div class="form-group">
-              <%= f.label :password %><br />
-              <%= f.password_field :password, class: "form-control", autocomplete: "current-password" %>
-            </div>
-
-            <% if devise_mapping.rememberable? -%>
-              <div class="form-check">
-                <%= f.check_box :remember_me, class: "form-check-input" %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end%>
-
-            <div class="actions form-group">
-              <%= f.submit "Log in",  class: "btn btn-success offset-1 col-sm-10" %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="close-modal btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'shared/modal' %>

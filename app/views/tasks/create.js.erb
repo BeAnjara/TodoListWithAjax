@@ -1,4 +1,8 @@
-console.log($('div.tab-content').find('div'));
-console.log('<%=@category.id.to_i - 1%>');
-console.log($('div.tab-content').find('div').eq((<%=@category.id.to_i%>- 1)).find('ul').append("<li>nouveau livre </li>"));
-
+<% if @task.errors.any? %>	
+	$('p.notice').addClass("alert alert-warning");
+	$('p.notice').html(" <%= j flash.now[:notice] %> ");
+<% else %>
+	$('.tab-content').find('div').eq(<%= @category.id.to_i - 1 %>).find('ul').append("<%= j render 'task', task: @task%>");
+	$('p.notice').addClass("alert alert-success");
+	$('p.notice').html("<%= j flash.now[:notice] %> ");
+<% end %>

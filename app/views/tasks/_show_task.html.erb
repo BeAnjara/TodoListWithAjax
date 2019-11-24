@@ -1,0 +1,17 @@
+  <div class="tab-content">
+    <% Category.all.each_with_index do  |category, index|%>
+    <div class="tab container tab-pane" id="tab<%=index%>">
+      <ul>
+        <% category.tasks.each do |task|  %>
+        <li id="task-<%= task.id %>">
+          <%= task.title  %>
+          <% unless task.deadline.nil? %>
+            , to read: <%= task.deadline.strftime('%D')  %>
+            <%= link_to "Delete this task", task_path(task), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" , remote: true%>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </div>
